@@ -33,7 +33,7 @@ async fn task_create_and_get() {
     };
 
     client
-        .post(&format!("{}/agents", server_url))
+        .post(format!("{}/agents", server_url))
         .json(&agent)
         .send()
         .await
@@ -46,7 +46,7 @@ async fn task_create_and_get() {
     });
 
     let response = client
-        .post(&format!("{}/tasks", server_url))
+        .post(format!("{}/tasks", server_url))
         .json(&task_request)
         .send()
         .await
@@ -58,7 +58,7 @@ async fn task_create_and_get() {
 
     // Get task
     let response = client
-        .get(&format!("{}/tasks/{}", server_url, task_id))
+        .get(format!("{}/tasks/{}", server_url, task_id))
         .send()
         .await
         .unwrap();
@@ -83,14 +83,14 @@ async fn task_complete_workflow() {
     };
 
     client
-        .post(&format!("{}/agents", server_url))
+        .post(format!("{}/agents", server_url))
         .json(&agent)
         .send()
         .await
         .unwrap();
 
     let response = client
-        .post(&format!("{}/tasks", server_url))
+        .post(format!("{}/tasks", server_url))
         .json(&serde_json::json!({"intent": "test.cap", "input": {}}))
         .send()
         .await
@@ -105,7 +105,7 @@ async fn task_complete_workflow() {
     });
 
     let response = client
-        .put(&format!("{}/tasks/{}/result", server_url, task_id))
+        .put(format!("{}/tasks/{}/result", server_url, task_id))
         .json(&update)
         .send()
         .await
@@ -131,14 +131,14 @@ async fn task_cancel_workflow() {
     };
 
     client
-        .post(&format!("{}/agents", server_url))
+        .post(format!("{}/agents", server_url))
         .json(&agent)
         .send()
         .await
         .unwrap();
 
     let response = client
-        .post(&format!("{}/tasks", server_url))
+        .post(format!("{}/tasks", server_url))
         .json(&serde_json::json!({"intent": "test.cap", "input": {}}))
         .send()
         .await
@@ -149,7 +149,7 @@ async fn task_cancel_workflow() {
 
     // Cancel task
     let response = client
-        .post(&format!("{}/tasks/{}/cancel", server_url, task_id))
+        .post(format!("{}/tasks/{}/cancel", server_url, task_id))
         .send()
         .await
         .unwrap();

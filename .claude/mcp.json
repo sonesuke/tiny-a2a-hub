@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "tiny-a2a-hub": {
+      "command": "/workspaces/tiny-a2a-hub/target/release/mcp-server",
+      "args": []
+    }
+  }
+}

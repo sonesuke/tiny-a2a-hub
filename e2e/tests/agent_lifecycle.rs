@@ -33,7 +33,7 @@ async fn agent_register_list_via_http() {
     };
 
     let response = client
-        .post(&format!("{}/agents", server_url))
+        .post(format!("{}/agents", server_url))
         .json(&agent)
         .send()
         .await
@@ -43,7 +43,7 @@ async fn agent_register_list_via_http() {
 
     // List agents
     let response = client
-        .get(&format!("{}/agents", server_url))
+        .get(format!("{}/agents", server_url))
         .send()
         .await
         .unwrap();
@@ -67,7 +67,7 @@ async fn agent_register_remove() {
     };
 
     client
-        .post(&format!("{}/agents", server_url))
+        .post(format!("{}/agents", server_url))
         .json(&agent)
         .send()
         .await
@@ -75,7 +75,7 @@ async fn agent_register_remove() {
 
     // Remove agent
     let response = client
-        .delete(&format!("{}/agents/test-agent", server_url))
+        .delete(format!("{}/agents/test-agent", server_url))
         .send()
         .await
         .unwrap();
@@ -84,7 +84,7 @@ async fn agent_register_remove() {
 
     // Verify removed
     let response = client
-        .get(&format!("{}/agents", server_url))
+        .get(format!("{}/agents", server_url))
         .send()
         .await
         .unwrap();

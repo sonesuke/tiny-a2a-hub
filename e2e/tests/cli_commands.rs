@@ -34,7 +34,7 @@ async fn run_cli(args: &[&str]) -> (String, String, bool) {
         cmd.args(&args);
 
         // Set LLVM profile file environment variable for coverage
-        if let Ok(_) = std::env::var("CARGO_LLVM_COV_TARGET_DIR") {
+        if std::env::var("CARGO_LLVM_COV_TARGET_DIR").is_ok() {
             cmd.env("LLVM_PROFILE_FILE", "%p-%m.profraw");
         }
 
