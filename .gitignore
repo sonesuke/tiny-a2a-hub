@@ -1,0 +1,33 @@
+# Rust
+/target/
+**/*.rs.bk
+*.pdb
+Cargo.lock
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
+
+# Test coverage
+*.profraw
+*.profdata
+
+# Database (for future SQLite support)
+*.db
+*.db-shm
+*.db-wal
+
+# Temporary files
+tmp/
+temp/
