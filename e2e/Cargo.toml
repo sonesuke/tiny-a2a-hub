@@ -1,0 +1,13 @@
+[package]
+name = "e2e"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dev-dependencies]
+hub-core = { workspace = true }
+hub-server = { path = "../crates/hub-server" }
+tokio = { workspace = true }
+reqwest = { workspace = true }
+axum = { workspace = true }
+serde_json = { workspace = true }

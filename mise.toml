@@ -1,0 +1,34 @@
+[tasks.test]
+description = "Run all tests"
+run = "cargo test --workspace"
+
+[tasks.fmt]
+description = "Format code"
+run = "cargo fmt"
+
+[tasks.fmt-check]
+description = "Check code formatting"
+run = "cargo fmt -- --check"
+
+[tasks.build]
+description = "Build workspace"
+run = "cargo build --workspace"
+
+[tasks.lint]
+description = "Run clippy linter"
+run = "cargo clippy --workspace -- -D warnings"
+
+[tasks.clean]
+description = "Clean build artifacts"
+run = "cargo clean"
+
+[tasks.pre-commit]
+description = "Run pre-commit checks (format and clippy)"
+run = ["cargo fmt --check", "cargo clippy --workspace -- -D warnings"]
+
+[tasks.coverage]
+description = "Generate coverage report (lib + e2e)"
+run = [
+    "cargo llvm-cov --workspace --lib --html",
+    "cargo llvm-cov --package e2e --html"
+]
