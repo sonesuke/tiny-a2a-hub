@@ -25,14 +25,17 @@ jobs:
         with:
           cache-on-failure: true
 
+      - name: Install mise
+        uses: jdx/mise-action@v2
+
       - name: Format check
-        run: cargo fmt -- --check
+        run: mise run fmt-check
 
       - name: Lint
-        run: cargo clippy --workspace --all-targets -- -D warnings
+        run: mise run lint
 
       - name: Build
-        run: cargo build --workspace
+        run: mise run build
 
       - name: Test
-        run: cargo test --workspace
+        run: mise run test
